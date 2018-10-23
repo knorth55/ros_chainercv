@@ -1,0 +1,2 @@
+chainer>=4.0
+chainercv>=0.10
