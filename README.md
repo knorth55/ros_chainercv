@@ -4,6 +4,10 @@ This is ROS wrapper of ChainerCV using `catkin_virtualenv`.
 
 This project depends on [locusrobotics/catkin_virtualenv](https://github.com/locusrobotics/catkin_virtualenv) and [chainer/chainercv](https://github.com/chainer/chainercv).
 
+## Support
+
+- Ubuntu 18.04 + ROS Melodic
+
 ## Build 
 
 Please build this package using the standard build procedure of ROS.
