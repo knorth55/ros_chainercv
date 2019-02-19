@@ -1,5 +1,8 @@
 # ROS-ChainerCV
 
+[![GitHub version](https://badge.fury.io/gh/knorth55%2Fros_chainercv.svg)](https://badge.fury.io/gh/knorth55%2Fros_chainercv)
+[![Build Status](https://travis-ci.org/knorth55/ros_chainercv.svg?branch=master)](https://travis-ci.org/knorth55/ros_chainercv)
+
 This is ROS wrapper of ChainerCV using `catkin_virtualenv`.
 
 This project depends on [locusrobotics/catkin_virtualenv](https://github.com/locusrobotics/catkin_virtualenv) and [chainer/chainercv](https://github.com/chainer/chainercv).
