@@ -34,3 +34,7 @@ source devel/setup.bash
 ### Semantic Segmentation
 
 - PSPNet: `roslaunch ros_chainercv sample_pspnet_semantic_segmentation.launch`
+
+### Instance Segmentation
+
+- FCIS: `roslaunch ros_chainercv sample_fcis_instance_segmentation.launch`

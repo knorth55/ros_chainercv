@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find ros_chainercv)/sample/sample_fcis_instance_segmentation.launch">
+    <arg name="gui" value="false" />
+    <arg name="model" value="fcis_resnet101" />
+    <arg name="gpu" value="-1" />
+  </include>
+  <include file="$(find ros_chainercv)/test/test_instance_segmentation.xml" />
+
+</launch>
