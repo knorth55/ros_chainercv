@@ -11,7 +11,7 @@ from chainercv.links import FasterRCNNFPNResNet50
 from ros_chainercv import ObjectDetectionNode
 
 
-class FasterRCNNObjectDetection(ObjectDetectionNode):
+class FasterRCNNFPNObjectDetection(ObjectDetectionNode):
 
     _models = {
         'faster_rcnn_fpn_resnet50': FasterRCNNFPNResNet50,
@@ -29,6 +29,6 @@ class FasterRCNNObjectDetection(ObjectDetectionNode):
 
 
 if __name__ == '__main__':
-    rospy.init_node('faster_rcnn_object_detection')
-    faster_rcnn_node = FasterRCNNObjectDetection()
+    rospy.init_node('faster_rcnn_fpn_object_detection')
+    faster_rcnn_fpn_node = FasterRCNNFPNObjectDetection()
     rospy.spin()
