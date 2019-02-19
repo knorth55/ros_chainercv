@@ -83,7 +83,7 @@ class ObjectDetectionNode(ConnectionBasedTransport):
 
     def image_cb(self, msg):
         img = self.cv_bridge.imgmsg_to_cv2(msg, desired_encoding="rgb8")
-        img = img.transpose((2, 0, 1))
+        img = img.transpose((2, 0, 1)).astype(np.float32)
 
         bboxes, labels, scores = self.model.predict([img])
         bbox, label, score = bboxes[0], labels[0], scores[0]
