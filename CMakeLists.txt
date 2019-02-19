@@ -21,3 +21,14 @@ install(DIRECTORY
 
 install(FILES requirements.txt
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  find_package(roslint REQUIRED)
+  roslint_python()
+  find_package(jsk_tools REQUIRED)
+  add_rostest(test/test_ssd300_object_detection.test)
+  add_rostest(test/test_ssd512_object_detection.test)
+
+endif()
+
