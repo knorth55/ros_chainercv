@@ -25,17 +25,23 @@ source devel/setup.bash
 *FasterRCNN*
 
 ```bash
-roslaunch ros_chainercv sample_faster_rcnn_object_detection.launch
+roslaunch ros_chainercv sample_faster_rcnn_object_detection.launch gpu:=-1
 ```
 
 *FasterRCNN FPN*
 
 ```bash
-roslaunch ros_chainercv sample_faster_rcnn_fpn_object_detection.launch
+roslaunch ros_chainercv sample_faster_rcnn_fpn_object_detection.launch gpu:=-1
+```
+
+*SSD*
+
+```bash
+roslaunch ros_chainercv sample_ssd_object_detection.launch gpu:=-1
 ```
 
 *YOLO*
 
 ```bash
-roslaunch ros_chainercv sample_yolo_object_detection.launch
+roslaunch ros_chainercv sample_yolo_object_detection.launch gpu:=-1
 ```
