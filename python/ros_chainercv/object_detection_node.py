@@ -1,7 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import rospy
+import sys
 
+import chainer
+from chainercv.links import SSD300
+from chainercv.links import SSD512
 from chainercv.visualizations import vis_bbox
 from cv_bridge import CvBridge
 from jsk_topic_tools import ConnectionBasedTransport
@@ -14,8 +18,21 @@ from sensor_msgs.msg import Image
 
 class ObjectDetectionNode(ConnectionBasedTransport):
 
+    _models = {
+        'ssd300': SSD300,
+        'ssd512': SSD512,
+    }
+
     def __init__(self):
         super(ObjectDetectionNode, self).__init__()
+        self.set_param()
+        self.check_param()
+        self.set_model()
+
+        if self.gpu >= 0:
+            chainer.cuda.get_device_from_id(self.gpu).use()
+            self.model.to_gpu()
+
         self.cv_bridge = CvBridge()
 
         # advertise
@@ -25,6 +42,23 @@ class ObjectDetectionNode(ConnectionBasedTransport):
             '~output/class', ClassificationResult, queue_size=1)
         self.pub_vis = self.advertise(
             '~output/vis', Image, queue_size=1)
+
+    def set_param(self):
+        self.model_name = rospy.get_param('~model')
+        self.pretrained_model = rospy.get_param('~pretrained_model')
+        self.label_names = rospy.get_param('~label_names')
+        self.gpu = rospy.get_param('~gpu')
+
+    def check_param(self):
+        if self.model_name not in self._models.keys():
+            rospy.logerr('model is not supported: {}'.format(self.model_name))
+            sys.exit(1)
+
+    def set_model(self):
+        model_cls = self._models[self.model_name]
+        self.model = model_cls(
+            n_fg_class=len(self.label_names),
+            pretrained_model=self.pretrained_model)
 
     def subscribe(self):
         self.sub_image = rospy.Subscriber(
