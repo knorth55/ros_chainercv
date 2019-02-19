@@ -4,8 +4,14 @@ import rospy
 import sys
 
 import chainer
+from chainercv.experimental.links import YOLOv2Tiny
+from chainercv.links import FasterRCNNFPNResNet101
+from chainercv.links import FasterRCNNFPNResNet50
+from chainercv.links import FasterRCNNVGG16
 from chainercv.links import SSD300
 from chainercv.links import SSD512
+from chainercv.links import YOLOv2
+from chainercv.links import YOLOv3
 from chainercv.visualizations import vis_bbox
 from cv_bridge import CvBridge
 from jsk_topic_tools import ConnectionBasedTransport
@@ -19,8 +25,15 @@ from sensor_msgs.msg import Image
 class ObjectDetectionNode(ConnectionBasedTransport):
 
     _models = {
+        'faster_rcnn_vgg16': FasterRCNNVGG16,
+        'faster_rcnn_fpn_resnet50': FasterRCNNFPNResNet50,
+        'faster_rcnn_fpn_resnet101': FasterRCNNFPNResNet101,
         'ssd300': SSD300,
         'ssd512': SSD512,
+        'yolo_v2': YOLOv2,
+        'yolo_v2_tiny': YOLOv2Tiny,
+        'yolo_v3': YOLOv3,
+
     }
 
     def __init__(self):

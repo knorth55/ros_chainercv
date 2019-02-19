@@ -1,13 +1,12 @@
 <launch>
-  <arg name="input_image" />
-
-  <arg name="model" default="ssd300"/>
+  <arg name="gui" default="true" />
+  <arg name="model" default="faster_rcnn_vgg16"/>
   <arg name="pretrained_model" default="voc0712"/>
   <arg name="gpu" default="-1"/>
   <arg name="label_names" default="$(find ros_chainercv)/yaml/voc_bbox_label_names.yaml" />
 
-  <include file="$(find ros_chainercv)/launch/object_detection.launch">
-    <arg name="input_image" value="$(arg input_image)" />
+  <include file="$(find ros_chainercv)/sample/sample_object_detection.launch">
+    <arg name="gui" value="$(arg gui)" />
     <arg name="model" value="$(arg model)" />
     <arg name="pretrained_model" value="$(arg pretrained_model)" />
     <arg name="gpu" value="$(arg gpu)" />
