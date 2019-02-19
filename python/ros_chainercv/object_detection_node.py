@@ -33,7 +33,6 @@ class ObjectDetectionNode(ConnectionBasedTransport):
         'yolo_v2': YOLOv2,
         'yolo_v2_tiny': YOLOv2Tiny,
         'yolo_v3': YOLOv3,
-
     }
 
     def __init__(self):
