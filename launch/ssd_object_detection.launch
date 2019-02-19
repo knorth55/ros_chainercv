@@ -1,0 +1,20 @@
+<launch>
+  <arg name="input_image" />
+
+  <arg name="model" default="ssd300"/>
+  <arg name="pretrained_model" default="voc0712"/>
+  <arg name="gpu" default="-1"/>
+  <arg name="label_names" default="$(find ros_chainercv)/yaml/voc_bbox_label_names.yaml" />
+
+  <node name="ssd_object_detection" pkg="ros_chainercv"
+        type="ssd_object_detection.py" output="screen">
+    <remap from="~input/image" to="$(arg input_image)" />
+    <rosparam subst_value="true">
+      model: $(arg model)
+      pretraned_model: $(arg pretrained_model)
+      gpu: $(arg gpu)
+    </rosparam>
+    <rosparam command="load" file="$(arg label_names)" />
+  </node>
+
+</launch>

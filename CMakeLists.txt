@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 2.8.12)
-project(chainercv)
+project(ros_chainercv)
 
 # Make sure to find-package `catkin_virtualenv`
 find_package(catkin REQUIRED catkin_virtualenv)
+
+catkin_python_setup()
 
 # Must be called before catkin_generate_virtualenv
 catkin_package()
@@ -11,11 +13,11 @@ catkin_package()
 catkin_generate_virtualenv()
 # catkin_generate_virtualenv(PYTHON3)
 
-# Make sure your python executables are installed using `catkin_install_python`:
-catkin_install_python(
-  PROGRAMS
-  scripts/ssd_demo.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(DIRECTORY
+  node_scripts
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  USE_SOURCE_PERMISSIONS
+)
 
 install(FILES requirements.txt
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
