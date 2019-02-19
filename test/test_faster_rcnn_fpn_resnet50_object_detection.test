@@ -1,7 +1,7 @@
 <launch>
-  <include file="$(find ros_chainercv)/sample/sample_ssd_object_detection.launch">
+  <include file="$(find ros_chainercv)/sample/sample_faster_rcnn_fpn_object_detection.launch">
     <arg name="gui" value="false" />
-    <arg name="model" value="ssd512" />
+    <arg name="model" value="faster_rcnn_fpn_resnet50" />
     <arg name="gpu" value="-1" />
   </include>
   <include file="$(find ros_chainercv)/test/test_object_detection.xml" />

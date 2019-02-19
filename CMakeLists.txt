@@ -27,8 +27,15 @@ if(CATKIN_ENABLE_TESTING)
   find_package(roslint REQUIRED)
   roslint_python()
   find_package(jsk_tools REQUIRED)
+  # too slow
+  # add_rostest(test/test_faster_rcnn_fpn_resnet101_object_detection.test)
+  # add_rostest(test/test_faster_rcnn_fpn_resnet50_object_detection.test)
+  add_rostest(test/test_faster_rcnn_vgg16_object_detection.test)
   add_rostest(test/test_ssd300_object_detection.test)
   add_rostest(test/test_ssd512_object_detection.test)
+  add_rostest(test/test_yolo_v2_object_detection.test)
+  add_rostest(test/test_yolo_v2_tiny_object_detection.test)
+  add_rostest(test/test_yolo_v3_object_detection.test)
 
 endif()
 
