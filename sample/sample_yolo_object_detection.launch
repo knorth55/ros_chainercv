@@ -1,0 +1,16 @@
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="model" default="yolo_v3"/>
+  <arg name="pretrained_model" default="voc0712"/>
+  <arg name="gpu" default="-1"/>
+  <arg name="label_names" default="$(find ros_chainercv)/yaml/voc_bbox_label_names.yaml" />
+
+  <include file="$(find ros_chainercv)/sample/sample_object_detection.launch">
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="model" value="$(arg model)" />
+    <arg name="pretrained_model" value="$(arg pretrained_model)" />
+    <arg name="gpu" value="$(arg gpu)" />
+    <arg name="label_names" value="$(arg label_names)" />
+  </include>
+
+</launch>
