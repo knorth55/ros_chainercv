@@ -8,10 +8,10 @@ from chainercv.datasets import ade20k_semantic_segmentation_label_names
 from chainercv.experimental.links import PSPNetResNet101
 from chainercv.experimental.links import PSPNetResNet50
 
-from ros_chainercv import ObjectDetectionNode
+from ros_chainercv import SemanticSegmentationNode
 
 
-class PSPNetSemanticSegmentation(ObjectDetectionNode):
+class PSPNetSemanticSegmentation(SemanticSegmentationNode):
 
     _models = {
         'pspnet_resnet101': PSPNetResNet101,
