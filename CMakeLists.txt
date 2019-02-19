@@ -14,7 +14,7 @@ catkin_generate_virtualenv()
 # catkin_generate_virtualenv(PYTHON3)
 
 install(DIRECTORY
-  node_scripts
+  launch node_scripts sample test yaml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
   USE_SOURCE_PERMISSIONS
 )
