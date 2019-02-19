@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find ros_chainercv)/sample/sample_pspnet_semantic_segmentation.launch">
+    <arg name="gui" value="false" />
+    <arg name="model" value="pspnet_resnet101" />
+    <arg name="gpu" value="-1" />
+  </include>
+  <include file="$(find ros_chainercv)/test/test_semantic_segmentation.xml" />
+
+</launch>

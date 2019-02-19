@@ -30,3 +30,7 @@ source devel/setup.bash
 - FasterRCNN FPN: `roslaunch ros_chainercv sample_faster_rcnn_fpn_object_detection.launch`
 - SSD: `roslaunch ros_chainercv sample_ssd_object_detection.launch`
 - YOLO: `roslaunch ros_chainercv sample_yolo_object_detection.launch`
+
+### Semantic Segmentation
+
+- PSPNet: `roslaunch ros_chainercv sample_pspnet_semantic_segmentation.launch`
