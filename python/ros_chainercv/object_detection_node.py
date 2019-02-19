@@ -88,11 +88,11 @@ class ObjectDetectionNode(ConnectionBasedTransport):
         bbox, label, score = bboxes[0], labels[0], scores[0]
 
         # bbox
-        rect_msg = RectArray(header=msg.header)
+        rects_msg = RectArray(header=msg.header)
         for bb in bbox:
             rect = Rect(
                 x=bb[1], y=bb[0], width=bb[3] - bb[1], height=bb[2] - bb[0])
-            rect_msg.rects.append(rect)
+            rects_msg.rects.append(rect)
 
         # classification
         cls_msg = ClassificationResult(
@@ -109,7 +109,7 @@ class ObjectDetectionNode(ConnectionBasedTransport):
         vis_msg.header = msg.header
 
         # publish
-        self.pub_rects.publish(rect_msg)
+        self.pub_rects.publish(rects_msg)
         self.pub_class.publish(cls_msg)
         self.pub_vis.publish(vis_msg)
 
