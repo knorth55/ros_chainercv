@@ -10,17 +10,29 @@ catkin_python_setup()
 catkin_package()
 
 # Generate the virtualenv, optionally with python 3 as the default interpreter:
-catkin_generate_virtualenv()
+catkin_generate_virtualenv(
+  PYTHON_VERSION_MAJOR 2
+  USE_SYSTEM_PACKAGES TRUE
+  ISOLATE_REQUIREMENTS FALSE
+)
 # catkin_generate_virtualenv(PYTHON3)
 
-install(DIRECTORY
-  launch node_scripts sample test yaml
+file(GLOB NODE_SCRIPTS_FILES node_scripts/*)
+catkin_install_python(
+  PROGRAMS ${NODE_SCRIPTS_FILES}
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(
+  DIRECTORY launch sample test yaml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
   USE_SOURCE_PERMISSIONS
 )
 
-install(FILES requirements.txt
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(
+  FILES requirements.txt
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
