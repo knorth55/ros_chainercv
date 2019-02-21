@@ -10,9 +10,9 @@
         retry="3" time-limit="360">
     <rosparam>
       topic_0: /semantic_segmentation/output/vis
-      timeout_0: 240
+      timeout_0: 360
       topic_2: /semantic_segmentation/output/label
-      timeout_2: 240
+      timeout_2: 360
     </rosparam>
   </test>
 

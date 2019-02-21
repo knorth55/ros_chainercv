@@ -10,11 +10,11 @@
         retry="3" time-limit="360">
     <rosparam>
       topic_0: /object_detection/output/vis
-      timeout_0: 240
+      timeout_0: 360
       topic_1: /object_detection/output/class
-      timeout_1: 240
+      timeout_1: 360
       topic_2: /object_detection/output/rects
-      timeout_2: 240
+      timeout_2: 360
     </rosparam>
   </test>
 
