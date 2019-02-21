@@ -1,3 +1,2 @@
-chainer>=5.2.0
 chainercv>=0.12
 cupy-cuda91>=5.2.0
