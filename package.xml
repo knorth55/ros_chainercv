@@ -26,6 +26,7 @@
   <exec_depend>jsk_recognition_msgs</exec_depend>
   <exec_depend>jsk_tools</exec_depend>
   <exec_depend>jsk_topic_tools</exec_depend>
+  <exec_depend>rqt_image_view</exec_depend>
 
   <test_depend>roslint</test_depend>
   <test_depend>rostest</test_depend>
