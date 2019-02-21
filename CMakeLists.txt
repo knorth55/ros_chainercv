@@ -41,7 +41,7 @@ install(
 )
 
 add_custom_target(${PROJECT_NAME}_install_pretrained_models ALL
-  COMMAND rosrun ros_chainercv install_pretrained_models.py
+  COMMAND ${${PROJECT_NAME}_VENV_DEVEL_DIR}/bin/python ${PROJECT_SOURCE_DIR}/scripts/install_pretrained_models.py
   DEPENDS ${PROJECT_NAME}_generate_virtualenv
 )
 
