@@ -7,14 +7,14 @@
 
   <test test-name="test_yolo_v3_object_detection"
         pkg="jsk_tools" type="test_topic_published.py"
-        retry="3" time-limit="360">
+        retry="3" time-limit="600">
     <rosparam>
       topic_0: /object_detection/output/vis
-      timeout_0: 240
+      timeout_0: 600
       topic_1: /object_detection/output/class
-      timeout_1: 240
+      timeout_1: 600
       topic_2: /object_detection/output/rects
-      timeout_2: 240
+      timeout_2: 600
     </rosparam>
   </test>
 
