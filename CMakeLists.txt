@@ -23,6 +23,12 @@ catkin_install_python(
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
+catkin_install_python(
+  PROGRAMS scripts/install_pretrained_models.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+
 install(
   DIRECTORY launch sample test yaml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
@@ -34,6 +40,11 @@ install(
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
+add_custom_target(${PROJECT_NAME}_install_pretrained_models ALL
+  COMMAND rosrun ros_chainercv install_pretrained_models.py
+  DEPENDS ${PROJECT_NAME}_generate_virtualenv
+)
+
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
   find_package(roslint REQUIRED)
@@ -41,7 +52,11 @@ if(CATKIN_ENABLE_TESTING)
   find_package(jsk_tools REQUIRED)
   roslint_python()
   macro(virtualenv_add_rostest rostest_file)
-    add_rostest(${rostest_file} DEPENDENCIES ${PROJECT_NAME}_generate_virtualenv)
+    add_rostest(${rostest_file}
+      DEPENDENCIES
+      ${PROJECT_NAME}_generate_virtualenv
+      ${PROJECT_NAME}_install_pretrained_models
+    )
     roslaunch_add_file_check(${rostest_file})
   endmacro()
 

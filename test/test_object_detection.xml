@@ -1,7 +1,7 @@
 <launch>
   <test test-name="test_object_detection"
         pkg="jsk_tools" type="test_topic_published.py"
-        retry="3">
+        retry="3" time-limit="360">
     <rosparam>
       topic_0: /object_detection/output/vis
       timeout_0: 120
@@ -11,5 +11,4 @@
       timeout_2: 120
     </rosparam>
   </test>
-
 </launch>

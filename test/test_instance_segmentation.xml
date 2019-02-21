@@ -1,7 +1,7 @@
 <launch>
   <test test-name="test_instance_segmentation"
         pkg="jsk_tools" type="test_topic_published.py"
-        retry="3">
+        retry="3" time-limit="360">
     <rosparam>
       topic_0: /instance_segmentation/output/vis
       timeout_0: 120
@@ -15,5 +15,4 @@
       timeout_5: 120
     </rosparam>
   </test>
-
 </launch>
