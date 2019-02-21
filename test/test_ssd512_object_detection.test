@@ -10,7 +10,7 @@
         retry="3" time-limit="600">
     <rosparam>
       topic_0: /object_detection/output/vis
-      timeout_0: 360
+      timeout_0: 600
       topic_1: /object_detection/output/class
       timeout_1: 600
       topic_2: /object_detection/output/rects
