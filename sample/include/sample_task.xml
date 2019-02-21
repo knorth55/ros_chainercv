@@ -1,0 +1,27 @@
+<launch>
+  <arg name="gui" />
+  <arg name="model" />
+  <arg name="pretrained_model" />
+  <arg name="gpu" />
+  <arg name="label_names" />
+  <arg name="task_name" />
+
+  <node name="image_publisher" pkg="jsk_perception" type="image_publisher.py">
+    <rosparam subst_value="true">
+      publish_info: false
+      file_name: $(find ros_chainercv)/sample/images/sample_$(arg task_name).jpg
+    </rosparam>
+  </node>
+
+  <include file="$(find ros_chainercv)/launch/$(arg task_name).launch">
+    <arg name="model" value="$(arg model)" />
+    <arg name="pretrained_model" value="$(arg pretrained_model)" />
+    <arg name="gpu" value="$(arg gpu)" />
+    <arg name="label_names" value="$(arg label_names)" />
+    <arg name="input_image" value="image_publisher/output" />
+  </include>
+
+  <node name="rqt_image_view" pkg="rqt_image_view" type="rqt_image_view"
+        args="/$(arg task_name)/output/vis" if="$(arg gui)" />
+
+</launch>
