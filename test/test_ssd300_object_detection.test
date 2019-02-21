@@ -4,6 +4,18 @@
     <arg name="model" value="ssd300" />
     <arg name="gpu" value="-1" />
   </include>
-  <include file="$(find ros_chainercv)/test/test_object_detection.xml" />
+
+  <test test-name="test_ssd300_object_detection"
+        pkg="jsk_tools" type="test_topic_published.py"
+        retry="3" time-limit="360">
+    <rosparam>
+      topic_0: /object_detection/output/vis
+      timeout_0: 240
+      topic_1: /object_detection/output/class
+      timeout_1: 240
+      topic_2: /object_detection/output/rects
+      timeout_2: 240
+    </rosparam>
+  </test>
 
 </launch>

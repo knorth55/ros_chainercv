@@ -4,6 +4,16 @@
     <arg name="model" value="pspnet_resnet101" />
     <arg name="gpu" value="-1" />
   </include>
-  <include file="$(find ros_chainercv)/test/test_semantic_segmentation.xml" />
+
+  <test test-name="test_pspnet_resnet101_semantic_segmentation"
+        pkg="jsk_tools" type="test_topic_published.py"
+        retry="3" time-limit="360">
+    <rosparam>
+      topic_0: /semantic_segmentation/output/vis
+      timeout_0: 240
+      topic_2: /semantic_segmentation/output/label
+      timeout_2: 240
+    </rosparam>
+  </test>
 
 </launch>

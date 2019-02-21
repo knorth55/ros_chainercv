@@ -4,6 +4,22 @@
     <arg name="model" value="fcis_resnet101" />
     <arg name="gpu" value="-1" />
   </include>
-  <include file="$(find ros_chainercv)/test/test_instance_segmentation.xml" />
+
+  <test test-name="test_fcis_resnet101_instance_segmentation"
+        pkg="jsk_tools" type="test_topic_published.py"
+        retry="3" time-limit="360">
+    <rosparam>
+      topic_0: /instance_segmentation/output/vis
+      timeout_0: 240
+      topic_2: /instance_segmentation/output/label
+      timeout_2: 240
+      topic_3: /instance_segmentation/output/inst_label
+      timeout_3: 240
+      topic_4: /instance_segmentation/output/rects
+      timeout_4: 240
+      topic_5: /instance_segmentation/output/class
+      timeout_5: 240
+    </rosparam>
+  </test>
 
 </launch>
