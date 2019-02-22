@@ -2,6 +2,6 @@
   <include file="$(find ros_chainercv)/test/include/test_object_detection.xml">
     <arg name="model" value="faster_rcnn_vgg16" />
     <arg name="model_name" value="faster_rcnn" />
-    <arg name="time_limit" value="360" />
+    <arg name="time_limit" value="600" />
   </include>
 </launch>
