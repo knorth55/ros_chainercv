@@ -36,7 +36,7 @@ cd ros_chaienrcv
 vim package.xml
 # remove nvidia-cuda dependency
 vim requirements.txt
-# modity cupy-cuda91 to cupy with your CUDA version
+# modify cupy-cuda91 to cupy with your CUDA version
 cd ../../
 rosdep install --ignore-src --from-path src -y -r -i
 catkin build
