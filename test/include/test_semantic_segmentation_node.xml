@@ -1,0 +1,28 @@
+<launch>
+  <arg name="model_name" />
+  <arg name="time_limit" value="240"/>
+
+  <node name="image_publisher" pkg="jsk_perception" type="image_publisher.py">
+    <rosparam subst_value="true">
+      publish_info: false
+      file_name: $(find ros_chainercv)/sample/images/sample_semantic_segmentation.jpg
+    </rosparam>
+  </node>
+
+  <node name="$(arg model_name)_semantic_segmentation" pkg="ros_chainercv"
+        type="$(arg model_name)_semantic_segmentation.py">
+    <remap from="~input/image" to="image_publisher/output" />
+  </node>
+
+  <test test-name="test_$(arg model_name)_semantic_segmentation_node"
+        pkg="jsk_tools" type="test_topic_published.py"
+        retry="3" time-limit="$(arg time_limit)">
+    <rosparam subst_value="true">
+      topic_0: /$(arg model_name)_semantic_segmentation/output/vis
+      timeout_0: $(arg time_limit)
+      topic_1: /$(arg model_name)_semantic_segmentation/output/label
+      timeout_1: $(arg time_limit)
+    </rosparam>
+  </test>
+
+</launch>

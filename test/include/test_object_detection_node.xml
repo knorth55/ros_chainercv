@@ -1,0 +1,30 @@
+<launch>
+  <arg name="model_name" />
+  <arg name="time_limit" value="240"/>
+
+  <node name="image_publisher" pkg="jsk_perception" type="image_publisher.py">
+    <rosparam subst_value="true">
+      publish_info: false
+      file_name: $(find ros_chainercv)/sample/images/sample_object_detection.jpg
+    </rosparam>
+  </node>
+
+  <node name="$(arg model_name)_object_detection" pkg="ros_chainercv"
+        type="$(arg model_name)_object_detection.py">
+    <remap from="~input/image" to="image_publisher/output" />
+  </node>
+
+  <test test-name="test_$(arg model_name)_object_detection_node"
+        pkg="jsk_tools" type="test_topic_published.py"
+        retry="3" time-limit="$(arg time_limit)">
+    <rosparam subst_value="true">
+      topic_0: /$(arg model_name)_object_detection/output/vis
+      timeout_0: $(arg time_limit)
+      topic_1: /$(arg model_name)_object_detection/output/class
+      timeout_1: $(arg time_limit)
+      topic_2: /$(arg model_name)_object_detection/output/rects
+      timeout_2: $(arg time_limit)
+    </rosparam>
+  </test>
+
+</launch>

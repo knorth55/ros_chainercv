@@ -60,18 +60,24 @@ if(CATKIN_ENABLE_TESTING)
     roslaunch_add_file_check(${rostest_file})
   endmacro()
 
-  # comment out too slow
+  # comment out slow tests
   # virtualenv_add_rostest(test/test_faster_rcnn_fpn_resnet101_object_detection.test)
   # virtualenv_add_rostest(test/test_faster_rcnn_fpn_resnet50_object_detection.test)
+  # virtualenv_add_rostest(test/test_faster_rcnn_fpn_object_detection_node.test)
   virtualenv_add_rostest(test/test_faster_rcnn_vgg16_object_detection.test)
+  virtualenv_add_rostest(test/test_faster_rcnn_object_detection_node.test)
   # virtualenv_add_rostest(test/test_fcis_resnet101_instance_segmentation.test)
+  # virtualenv_add_rostest(test/test_fcis_instance_segmentation_node.test)
   # virtualenv_add_rostest(test/test_pspnet_resnet101_semantic_segmentation.test)
   # virtualenv_add_rostest(test/test_pspnet_resnet50_semantic_segmentation.test)
+  # virtualenv_add_rostest(test/test_pspnet_semantic_segmentation_node.test)
   virtualenv_add_rostest(test/test_ssd300_object_detection.test)
   # virtualenv_add_rostest(test/test_ssd512_object_detection.test)
+  virtualenv_add_rostest(test/test_ssd_object_detection_node.test)
   virtualenv_add_rostest(test/test_yolo_v2_object_detection.test)
   virtualenv_add_rostest(test/test_yolo_v2_tiny_object_detection.test)
   virtualenv_add_rostest(test/test_yolo_v3_object_detection.test)
+  virtualenv_add_rostest(test/test_yolo_object_detection_node.test)
 
 endif()
 
