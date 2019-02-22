@@ -22,3 +22,7 @@ env:
   matrix:
     - ROS_DISTRO=melodic USE_DEB=true
 script: source .travis/travis.sh
+
+branches:
+  only:
+    - master
