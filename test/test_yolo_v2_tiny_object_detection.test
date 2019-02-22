@@ -7,7 +7,7 @@
 
   <test test-name="test_yolo_v2_tiny_object_detection"
         pkg="jsk_tools" type="test_topic_published.py"
-        retry="3" time-limit="360">
+        retry="3" time-limit="240">
     <rosparam>
       topic_0: /object_detection/output/vis
       timeout_0: 240

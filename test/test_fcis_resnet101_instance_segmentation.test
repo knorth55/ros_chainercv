@@ -7,7 +7,7 @@
 
   <test test-name="test_fcis_resnet101_instance_segmentation"
         pkg="jsk_tools" type="test_topic_published.py"
-        retry="3" time-limit="360">
+        retry="3" time-limit="240">
     <rosparam>
       topic_0: /instance_segmentation/output/vis
       timeout_0: 240
