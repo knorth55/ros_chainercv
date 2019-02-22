@@ -59,3 +59,11 @@ source devel/setup.bash
 ### Instance Segmentation
 
 - FCIS: `roslaunch ros_chainercv sample_fcis_instance_segmentation.launch`
+
+## Test deependency version
+- Ubuntu: 18.04
+- ROS: Melodic
+- CUDA: 9.1
+- Chainer: 5.2.0
+- CuPy: 5.2.0
+- ChainerCV: 0.12
