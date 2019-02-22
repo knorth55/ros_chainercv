@@ -27,3 +27,5 @@ RUN cd ~/ros/ros_chainercv_ws/src && \
 RUN cd ~/ros/ros_chainercv_ws && \
     . /opt/ros/$ROS_DISTRO/setup.sh && \
     catkin build
+
+RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
