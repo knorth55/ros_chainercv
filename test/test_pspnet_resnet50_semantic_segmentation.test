@@ -1,19 +1,7 @@
 <launch>
-  <include file="$(find ros_chainercv)/sample/sample_pspnet_semantic_segmentation.launch">
-    <arg name="gui" value="false" />
+  <include file="$(find ros_chainercv)/test/include/test_semantic_segmentation.xml">
     <arg name="model" value="pspnet_resnet50" />
-    <arg name="gpu" value="-1" />
+    <arg name="model_name" value="pspnet" />
+    <arg name="time_limit" value="600" />
   </include>
-
-  <test test-name="test_pspnet_resnet50_semantic_segmentation"
-        pkg="jsk_tools" type="test_topic_published.py"
-        retry="3" time-limit="600">
-    <rosparam>
-      topic_0: /semantic_segmentation/output/vis
-      timeout_0: 600
-      topic_1: /semantic_segmentation/output/label
-      timeou_1: 600
-    </rosparam>
-  </test>
-
 </launch>

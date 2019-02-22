@@ -1,0 +1,23 @@
+<launch>
+  <arg name="model" />
+  <arg name="model_name" />
+  <arg name="time_limit" value="240"/>
+
+  <include file="$(find ros_chainercv)/sample/sample_$(arg model_name)_semantic_segmentation.launch">
+    <arg name="model" value="$(arg model)" />
+    <arg name="gui" value="false" />
+    <arg name="gpu" value="-1" />
+  </include>
+
+  <test test-name="test_$(arg model)_semantic_segmentation"
+        pkg="jsk_tools" type="test_topic_published.py"
+        retry="3" time-limit="$(arg time_limit)">
+    <rosparam subst_value="true">
+      topic_0: /semantic_segmentation/output/vis
+      timeout_0: $(arg time_limit)
+      topic_1: /semantic_segmentation/output/label
+      timeout_1: $(arg time_limit)
+    </rosparam>
+  </test>
+
+</launch>
