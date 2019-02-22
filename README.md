@@ -11,16 +11,34 @@ This project depends on [locusrobotics/catkin_virtualenv](https://github.com/loc
 
 - Ubuntu 18.04 + ROS Melodic
 
-## Build 
+## Build
 
+### Build with `nvidia-cuda-toolkit` deb package
 Please build this package using the standard build procedure of ROS.
 
 ```bash
 mkdir catkin_ws/src -p
 cd catkin_ws/src
-git clone https://github.com/locusrobotics/catkin_virtualenv.git
 git clone https://github.com/knorth55/ros_chainercv.git
 cd ..
+rosdep install --ignore-src --from-path src -y -r -i
+catkin build
+source devel/setup.bash
+```
+
+### Build with your own CUDA
+
+```bash
+mkdir catkin_ws/src -p
+cd catkin_ws/src
+git clone https://github.com/knorth55/ros_chainercv.git
+cd ros_chaienrcv
+vim package.xml
+# remove nvidia-cuda dependency
+vim requirements.txt
+# modity cupy-cuda91 to cupy with your CUDA version
+cd ../../
+rosdep install --ignore-src --from-path src -y -r -i
 catkin build
 source devel/setup.bash
 ```
