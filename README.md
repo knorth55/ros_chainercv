@@ -60,7 +60,7 @@ source devel/setup.bash
 
 - FCIS: `roslaunch ros_chainercv sample_fcis_instance_segmentation.launch`
 
-## Test deependency version
+## Tested environment
 - Ubuntu: 18.04
 - ROS: Melodic
 - CUDA: 9.1
