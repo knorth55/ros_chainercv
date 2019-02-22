@@ -1,7 +1,7 @@
 <launch>
   <arg name="model" />
   <arg name="model_name" />
-  <arg name="time_limit" value="240"/>
+  <arg name="time_limit" default="240"/>
 
   <include file="$(find ros_chainercv)/sample/sample_$(arg model_name)_semantic_segmentation.launch">
     <arg name="model" value="$(arg model)" />
