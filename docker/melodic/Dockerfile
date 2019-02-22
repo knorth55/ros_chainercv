@@ -25,5 +25,5 @@ RUN cd ~/ros/ros_chainercv_ws/src && \
     rosdep install --rosdistro $ROS_DISTRO -r -y -i --from-paths . 
 
 RUN cd ~/ros/ros_chainercv_ws && \
-    source /opt/ros/$ROS_DISTRO/setup.sh && \
+    . /opt/ros/$ROS_DISTRO/setup.sh && \
     catkin build
