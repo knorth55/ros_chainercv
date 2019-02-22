@@ -11,14 +11,14 @@
     <rosparam>
       topic_0: /instance_segmentation/output/vis
       timeout_0: 240
-      topic_2: /instance_segmentation/output/label
+      topic_1: /instance_segmentation/output/label
+      timeout_1: 240
+      topic_2: /instance_segmentation/output/inst_label
       timeout_2: 240
-      topic_3: /instance_segmentation/output/inst_label
+      topic_3: /instance_segmentation/output/rects
       timeout_3: 240
-      topic_4: /instance_segmentation/output/rects
+      topic_4: /instance_segmentation/output/class
       timeout_4: 240
-      topic_5: /instance_segmentation/output/class
-      timeout_5: 240
     </rosparam>
   </test>
 

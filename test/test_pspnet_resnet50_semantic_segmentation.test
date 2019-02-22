@@ -11,8 +11,8 @@
     <rosparam>
       topic_0: /semantic_segmentation/output/vis
       timeout_0: 600
-      topic_2: /semantic_segmentation/output/label
-      timeout_2: 600
+      topic_1: /semantic_segmentation/output/label
+      timeou_1: 600
     </rosparam>
   </test>
 
