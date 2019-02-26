@@ -4,7 +4,6 @@ ENV ROS_DISTRO=melodic
 
 RUN echo "deb http://packages.ros.org/ros-shadow-fixed/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
 
-# FIXME: https://github.com/start-jsk/jsk_apc/pull/2664
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y \
     wget \
     git \
