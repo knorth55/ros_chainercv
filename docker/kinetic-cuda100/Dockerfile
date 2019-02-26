@@ -3,25 +3,27 @@ FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
 ENV ROS_DISTRO=kinetic
 ENV CUPY_CUDA_VERSION=100
 
+RUN apt-get update && apt-get upgrade -y
+
+RUN apt-get install -y --noinstall-recommends \
+    git \
+    lsb-release \
+    sed \
+    wget \
+
 RUN echo "deb http://packages.ros.org/ros-shadow-fixed/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
 
-RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116  
-
-RUN apt-get update && \
-    apt-get dist-upgrade -y
+RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 
 RUN apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-ros-core \
     python-catkin-tools \
-    python-pip \ 
+    python-pip \
     python-rosdep \
     python-rosinstall \
     python-vcstools \
     python-setuptools \
-    python-wstool \ 
-    wget \
-    sed \
-    git
+    python-wstool
 
 RUN mkdir -p ~/ros/ros_chainercv_ws/src && \
     cd ~/ros/ros_chainercv_ws/src && \
@@ -35,7 +37,7 @@ RUN cd ~/ros/ros_chainercv_ws/src && \
 
 RUN cd ~/ros/ros_chainercv_ws/src && \
     rosdep update && \
-    rosdep install --rosdistro $ROS_DISTRO -r -y -i --from-paths . 
+    rosdep install --rosdistro $ROS_DISTRO -r -y -i --from-paths .
 
 RUN cd ~/ros/ros_chainercv_ws && \
     . /opt/ros/$ROS_DISTRO/setup.sh && \
