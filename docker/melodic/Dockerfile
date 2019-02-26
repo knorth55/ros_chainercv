@@ -11,7 +11,7 @@ RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y \
     python-pip \
     python-rosdep \
     python-setuptools \
-    python-wstool 
+    python-wstool
 
 RUN mkdir -p ~/ros/ros_chainercv_ws/src && \
     cd ~/ros/ros_chainercv_ws/src && \
@@ -21,7 +21,7 @@ RUN mkdir -p ~/ros/ros_chainercv_ws/src && \
 
 RUN cd ~/ros/ros_chainercv_ws/src && \
     rosdep update && \
-    rosdep install --rosdistro $ROS_DISTRO -r -y -i --from-paths . 
+    rosdep install --rosdistro $ROS_DISTRO -r -y -i --from-paths .
 
 RUN cd ~/ros/ros_chainercv_ws && \
     . /opt/ros/$ROS_DISTRO/setup.sh && \
