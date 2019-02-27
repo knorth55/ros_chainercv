@@ -20,7 +20,11 @@ env:
     - USE_TRAVIS=true
     - USE_DOCKER=true
   matrix:
+    - ROS_DISTRO=melodic USE_DEB=false
     - ROS_DISTRO=melodic USE_DEB=true
+matrix:
+  allow_failures:
+    - env: ROS_DISTRO=melodic USE_DEB=true
 script: source .travis/travis.sh
 
 branches:
