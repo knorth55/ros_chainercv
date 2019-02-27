@@ -2,6 +2,7 @@ FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 
 ENV ROS_DISTRO=melodic
 ENV CUPY_CUDA_VERSION=100
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get upgrade -y
 
