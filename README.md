@@ -2,6 +2,10 @@
 
 [![GitHub version](https://badge.fury.io/gh/knorth55%2Fros_chainercv.svg)](https://badge.fury.io/gh/knorth55%2Fros_chainercv)
 [![Build Status](https://travis-ci.com/knorth55/ros_chainercv.svg?branch=master)](https://travis-ci.com/knorth55/ros_chainercv)
+[![Docker Stars](https://img.shields.io/docker/stars/knorth55/ros_chainercv.svg)](https://hub.docker.com/r/knorth55/ros_chainercv)
+[![Docker Pulls](https://img.shields.io/docker/pulls/knorth55/ros_chainercv.svg)](https://hub.docker.com/r/knorth55/ros_chainercv)
+[![Docker Automated](https://img.shields.io/docker/automated/knorth55/ros_chainercv.svg)](https://hub.docker.com/r/knorth55/ros_chainercv)
+[![Docker Build Status](https://img.shields.io/docker/build/knorth55/ros_chainercv.svg)](https://hub.docker.com/r/knorth55/ros_chainercv)
 
 This is ROS wrapper of ChainerCV using `catkin_virtualenv`.
 
