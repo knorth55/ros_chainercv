@@ -31,6 +31,7 @@ RUN mkdir -p ~/ros/ros_chainercv_ws/src && \
     cd ~/ros/ros_chainercv_ws/src && \
     wstool init && \
     wstool set knorth55/ros_chainercv https://github.com/knorth55/ros_chainercv.git -v master --git -y && \
+    wstool set locusrobotics/catkin_virtualenv https://github.com/locusrobotics/catkin_virtualenv.git -v 0.3.0 --git -y && \
     wstool up -j 2
 
 RUN cd ~/ros/ros_chainercv_ws/src/knorth55/ros_chainercv && \
