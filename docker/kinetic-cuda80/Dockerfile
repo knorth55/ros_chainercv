@@ -9,7 +9,8 @@ RUN apt-get install -y --no-install-recommends \
     git \
     lsb-release \
     sed \
-    wget
+    wget \
+    gnupg2
 
 RUN echo "deb http://packages.ros.org/ros-shadow-fixed/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
 
