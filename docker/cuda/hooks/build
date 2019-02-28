@@ -9,8 +9,12 @@ CUDA_MINOR_VERSION=${BASH_REMATCH[2]:${#BASH_REMATCH[2]}-1:1}
 
 if [[ ${ROS_DISTRO} = "kinetic" ]]; then
     UBUNTU_VERSION="16.04"
-else if [[ ${ROS_DISTRO} = "melodic" ]]; then
+elif [[ ${ROS_DISTRO} = "melodic" ]]; then
     UBUNTU_VERSION="18.04"
 fi
 
-docker build --build-arg ROS_DISTRO=${ROS_DISTRO} UBUNTU_VERSION=${UBUNTU_VERSION} CUDA_MAJOR_VERSION=${CUDA_MAJOR_VERSION} CUDA_MINOR_VERSION=${CUDA_MINOR_VERSION} -t ${IMAGE_NAME} .
+docker build --build-arg ROS_DISTRO=${ROS_DISTRO} \
+             --build-arg UBUNTU_VERSION=${UBUNTU_VERSION} \
+             --build-arg CUDA_MAJOR_VERSION=${CUDA_MAJOR_VERSION} \
+             --build-arg CUDA_MINOR_VERSION=${CUDA_MINOR_VERSION} \
+             -t ${IMAGE_NAME} .
