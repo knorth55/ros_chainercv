@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eu
+
+[[ ${DOCKER_TAG} =~ ([a-z]+)-cuda([0-9]+)-([0-9a-z.]+)$ ]]
+ROS_DISTRO=${BASH_REMATCH[1]}
+CUDA_MAJOR_VERSION=${BASH_REMATCH[2]:0:${#BASH_REMATCH[2]}-1}
+CUDA_MINOR_VERSION=${BASH_REMATCH[2]:${#BASH_REMATCH[2]}-1:1}
+
+if [[ ${ROS_DISTRO} = "kinetic" ]]; then
+    UBUNTU_VERSION="16.04"
+else if [[ ${ROS_DISTRO} = "melodic" ]]; then
+    UBUNTU_VERSION="18.04"
+fi
+
+docker build --build-arg ROS_DISTRO=${ROS_DISTRO} UBUNTU_VERSION=${UBUNTU_VERSION} CUDA_MAJOR_VERSION=${CUDA_MAJOR_VERSION} CUDA_MINOR_VERSION=${CUDA_MINOR_VERSION} -t ${IMAGE_NAME} .
