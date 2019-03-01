@@ -11,9 +11,31 @@ This is ROS wrapper of ChainerCV using `catkin_virtualenv`.
 
 This project depends on [locusrobotics/catkin_virtualenv](https://github.com/locusrobotics/catkin_virtualenv) and [chainer/chainercv](https://github.com/chainer/chainercv).
 
-## Support
+## Main support
 
 - Ubuntu 18.04 + ROS Melodic
+
+## Docker support
+
+You can get docker images below from Docker hub repository [ros_chainercv/knorth55](https://hub.docker.com/r/knorth55/ros_chainercv).
+
+Available tags are below.
+- Ubuntu 16.04 + ROS Kinetic
+  - Kinetic: `kinetic-latest`
+  - Kinetic + CUDA8.0: `kinetic-cuda80-latest`
+  - Kinetic + CUDA9.0: `kinetic-cuda90-latest`
+  - Kinetic + CUDA9.1: `kinetic-cuda91-latest`
+  - Kinetic + CUDA9.2: `kinetic-cuda92-latest`
+  - Kinetic + CUDA10.0: `kinetic-cuda100-latest` 
+- Ubuntu 18.04 + ROS Melodic
+  - Melodic: `melodic-latest`
+  - Melodic + CUDA9.2: `melodic-cuda92-latest`
+  - Melodic + CUDA10.0: `melodic-cuda100-latest`
+
+You can get docker images as a command below.
+```bash
+docker pull knorth55/ros_chainercv:melodic-cuda92-latest
+```
 
 ## Build
 
