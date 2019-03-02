@@ -17,7 +17,7 @@ This project depends on [locusrobotics/catkin_virtualenv](https://github.com/loc
 
 ## Docker support
 
-You can get docker images below from Docker hub repository [ros_chainercv](https://hub.docker.com/r/knorth55/ros_chainercv).
+You can get docker images below from Docker hub repository [knorth55/ros_chainercv](https://hub.docker.com/r/knorth55/ros_chainercv).
 
 Available tags are below.
 - Ubuntu 16.04 + ROS Kinetic
