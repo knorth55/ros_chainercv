@@ -31,8 +31,7 @@ class InstanceSegmentationNode(ConnectionBasedTransport):
         self.set_model()
 
         if self.gpu >= 0:
-            chainer.cuda.get_device_from_id(self.gpu).use()
-            self.model.to_gpu()
+            self.model.to_gpu(self.gpu)
 
         self.cv_bridge = CvBridge()
 
@@ -84,6 +83,8 @@ class InstanceSegmentationNode(ConnectionBasedTransport):
         self.sub_image.unregister()
 
     def image_cb(self, msg):
+        chainer.cuda.get_device_from_id(self.gpu).use()
+
         img = self.cv_bridge.imgmsg_to_cv2(msg, desired_encoding="rgb8")
         img = img.transpose((2, 0, 1)).astype(np.float32)
 
