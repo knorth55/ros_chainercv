@@ -2,11 +2,12 @@
   <arg name="model" />
   <arg name="model_name" />
   <arg name="time_limit" default="240"/>
+  <arg name="gpu" default="-1" />
 
   <include file="$(find ros_chainercv)/sample/sample_$(arg model_name)_object_detection.launch">
     <arg name="model" value="$(arg model)" />
     <arg name="gui" value="false" />
-    <arg name="gpu" value="-1" />
+    <arg name="gpu" value="$(arg gpu)" />
   </include>
 
   <test test-name="test_$(arg model)_object_detection"

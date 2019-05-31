@@ -1,6 +1,7 @@
 <launch>
   <arg name="model_name" />
   <arg name="time_limit" default="240"/>
+  <arg name="gpu" default="-1" />
 
   <node name="image_publisher" pkg="jsk_perception" type="image_publisher.py">
     <rosparam subst_value="true">
@@ -12,6 +13,7 @@
   <node name="$(arg model_name)_object_detection" pkg="ros_chainercv"
         type="$(arg model_name)_object_detection.py">
     <remap from="~input/image" to="image_publisher/output" />
+    <param name="gpu" value="$(arg gpu)" />
   </node>
 
   <test test-name="test_$(arg model_name)_object_detection_node"

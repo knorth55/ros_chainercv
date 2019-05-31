@@ -1,6 +1,9 @@
 <launch>
+  <arg name="gpu" default="-1" />
+
   <include file="$(find ros_chainercv)/test/include/test_object_detection_node.xml">
     <arg name="model_name" value="faster_rcnn_fpn" />
     <arg name="time_limit" value="600" />
+    <arg name="gpu" value="$(arg gpu)" />
   </include>
 </launch>

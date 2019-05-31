@@ -1,7 +1,10 @@
 <launch>
+  <arg name="gpu" default="-1" />
+
   <include file="$(find ros_chainercv)/test/include/test_semantic_segmentation.xml">
     <arg name="model" value="pspnet_resnet50" />
     <arg name="model_name" value="pspnet" />
     <arg name="time_limit" value="600" />
+    <arg name="gpu" value="$(arg gpu)" />
   </include>
 </launch>
