@@ -11,7 +11,7 @@ catkin_package()
 
 # Generate the virtualenv, optionally with python 3 as the default interpreter:
 catkin_generate_virtualenv(
-  PYTHON_VERSION_MAJOR 2
+  PYTHON_VERSION 2
   USE_SYSTEM_PACKAGES TRUE
   ISOLATE_REQUIREMENTS FALSE
 )
