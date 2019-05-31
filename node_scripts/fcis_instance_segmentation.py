@@ -26,6 +26,6 @@ class FCISInstanceSegmentation(InstanceSegmentationNode):
 
 
 if __name__ == '__main__':
-    rospy.init_node('fcis_semantic_segmentation')
+    rospy.init_node('fcis_instance_segmentation')
     fcis_node = FCISInstanceSegmentation()
     rospy.spin()
