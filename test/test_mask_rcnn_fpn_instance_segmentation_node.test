@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find ros_chainercv)/test/include/test_instance_segmentation_node.xml">
+    <arg name="model_name" value="mask_rcnn_fpn" />
+    <arg name="time_limit" value="600" />
+  </include>
+</launch>
