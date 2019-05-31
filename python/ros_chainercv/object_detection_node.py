@@ -25,9 +25,9 @@ from sensor_msgs.msg import Image
 class ObjectDetectionNode(ConnectionBasedTransport):
 
     _models = {
-        'faster_rcnn_vgg16': FasterRCNNVGG16,
-        'faster_rcnn_fpn_resnet50': FasterRCNNFPNResNet50,
         'faster_rcnn_fpn_resnet101': FasterRCNNFPNResNet101,
+        'faster_rcnn_fpn_resnet50': FasterRCNNFPNResNet50,
+        'faster_rcnn_vgg16': FasterRCNNVGG16,
         'ssd300': SSD300,
         'ssd512': SSD512,
         'yolo_v2': YOLOv2,
