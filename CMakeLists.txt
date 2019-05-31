@@ -61,6 +61,8 @@ if(CATKIN_ENABLE_TESTING)
   endmacro()
 
   # comment out slow tests
+  # virtualenv_add_rostest(test/test_deeplab_semantic_segmentation_node.test)
+  # virtualenv_add_rostest(test/test_deeplab_v3plus_xception65_semantic_segmentation.test)
   # virtualenv_add_rostest(test/test_faster_rcnn_fpn_resnet101_object_detection.test)
   # virtualenv_add_rostest(test/test_faster_rcnn_fpn_resnet50_object_detection.test)
   # virtualenv_add_rostest(test/test_faster_rcnn_fpn_object_detection_node.test)
