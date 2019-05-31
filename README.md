@@ -92,6 +92,6 @@ source devel/setup.bash
 - Ubuntu: 18.04
 - ROS: Melodic
 - CUDA: 9.1
-- Chainer: 5.2.0
-- CuPy: 5.2.0
-- ChainerCV: 0.12
+- Chainer: 6.0.0
+- CuPy: 6.0.0
+- ChainerCV: 0.13
