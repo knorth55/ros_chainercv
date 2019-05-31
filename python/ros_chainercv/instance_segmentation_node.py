@@ -5,6 +5,8 @@ import sys
 
 import chainer
 from chainercv.experimental.links import FCISResNet101
+from chainercv.links import MaskRCNNFPNResNet101
+from chainercv.links import MaskRCNNFPNResNet50
 from chainercv.utils import mask_to_bbox
 from chainercv.visualizations.colormap import voc_colormap
 from chainercv.visualizations import vis_bbox
@@ -22,6 +24,8 @@ class InstanceSegmentationNode(ConnectionBasedTransport):
 
     _models = {
         'fcis_resnet101': FCISResNet101,
+        'mask_rcnn_fpn_resnet101': MaskRCNNFPNResNet101,
+        'mask_rcnn_fpn_resnet50': MaskRCNNFPNResNet50,
     }
 
     def __init__(self):
