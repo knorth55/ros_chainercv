@@ -6,6 +6,7 @@ import sys
 import chainer
 from chainercv.experimental.links import PSPNetResNet101
 from chainercv.experimental.links import PSPNetResNet50
+from chainercv.links import DeepLabV3plusXception65
 from chainercv.visualizations import vis_image
 from chainercv.visualizations import vis_semantic_segmentation
 from cv_bridge import CvBridge
@@ -17,6 +18,7 @@ from sensor_msgs.msg import Image
 class SemanticSegmentationNode(ConnectionBasedTransport):
 
     _models = {
+        'deeplab_v3plus_xception65': DeepLabV3plusXception65,
         'pspnet_resnet101': PSPNetResNet101,
         'pspnet_resnet50': PSPNetResNet50,
     }
