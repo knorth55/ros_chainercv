@@ -85,6 +85,7 @@ source devel/setup.bash
 ### Instance Segmentation
 
 - FCIS: `roslaunch ros_chainercv sample_fcis_instance_segmentation.launch`
+- MaskRCNN FPN: `roslaunch ros_chainercv sample_mask_rcnn_fpn_instance_segmentation.launch`
 
 ## Tested environment
 - Ubuntu: 18.04
