@@ -5,8 +5,8 @@ matplotlib.use("Agg")  # NOQA
 import rospy
 
 from chainercv.datasets import coco_instance_segmentation_label_names
-from chainercv.links import MaskRCNNFPNResNet50
 from chainercv.links import MaskRCNNFPNResNet101
+from chainercv.links import MaskRCNNFPNResNet50
 
 from ros_chainercv import InstanceSegmentationNode
 
@@ -14,8 +14,8 @@ from ros_chainercv import InstanceSegmentationNode
 class MaskRCNNFPNInstanceSegmentation(InstanceSegmentationNode):
 
     _models = {
-        'mask_rcnn_fpn_resnet50': MaskRCNNFPNResNet50,
         'mask_rcnn_fpn_resnet101': MaskRCNNFPNResNet101,
+        'mask_rcnn_fpn_resnet50': MaskRCNNFPNResNet50,
     }
 
     def set_param(self):
