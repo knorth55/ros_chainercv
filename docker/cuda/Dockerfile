@@ -4,9 +4,7 @@ ARG UBUNTU_VERSION
 FROM nvidia/cuda:${CUDA_MAJOR_VERSION}.${CUDA_MINOR_VERSION}-cudnn7-devel-ubuntu${UBUNTU_VERSION}
 
 ENV DEBIAN_FRONTEND=noninteractive
-ARG ROS_DISTRO
-ARG CUDA_MAJOR_VERSION
-ARG CUDA_MINOR_VERSION
+
 RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install -y --no-install-recommends \
@@ -20,6 +18,7 @@ RUN echo "deb http://packages.ros.org/ros-shadow-fixed/ubuntu $(lsb_release -sc)
 
 RUN wget http://packages.ros.org/ros.key -O - | apt-key add -
 
+ARG ROS_DISTRO
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-ros-core \
@@ -35,9 +34,11 @@ RUN mkdir -p ~/ros/ros_chainercv_ws/src && \
     cd ~/ros/ros_chainercv_ws/src && \
     wstool init && \
     wstool set knorth55/ros_chainercv https://github.com/knorth55/ros_chainercv.git -v master --git -y && \
-    wstool set locusrobotics/catkin_virtualenv https://github.com/locusrobotics/catkin_virtualenv.git -v 0.3.0 --git -y && \
+    wstool set locusrobotics/catkin_virtualenv https://github.com/locusrobotics/catkin_virtualenv.git -v 0.4.1 --git -y && \
     wstool up -j 2
 
+ARG CUDA_MAJOR_VERSION
+ARG CUDA_MINOR_VERSION
 RUN cd ~/ros/ros_chainercv_ws/src/knorth55/ros_chainercv && \
     sed -e 's/.*nvidia-cuda.*//g' -i package.xml && \
     sed -e 's/cuda91/cuda'"${CUDA_MAJOR_VERSION}${CUDA_MINOR_VERSION}"'/g' -i requirements.txt
