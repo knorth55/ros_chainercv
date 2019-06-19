@@ -4,9 +4,10 @@ FROM osrf/ros:${ROS_DISTRO}-desktop-${UBUNTU_NAME}
 
 RUN echo "deb http://packages.ros.org/ros-shadow-fixed/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
 
+RUN apt-get update && apt-get install -y wget git
+RUN wget http://packages.ros.org/ros.key -O - | apt-key add -
+
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y \
-    wget \
-    git \
     python-catkin-tools \
     python-pip \
     python-rosdep \
