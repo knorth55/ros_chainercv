@@ -41,6 +41,7 @@ ARG CUDA_MAJOR_VERSION
 ARG CUDA_MINOR_VERSION
 RUN cd ~/ros/ros_chainercv_ws/src/knorth55/ros_chainercv && \
     sed -e 's/.*nvidia-cuda.*//g' -i package.xml && \
+    sed -e 's/cuda91/cuda'"${CUDA_MAJOR_VERSION}${CUDA_MINOR_VERSION}"'/g' -i requirements.in && \
     sed -e 's/cuda91/cuda'"${CUDA_MAJOR_VERSION}${CUDA_MINOR_VERSION}"'/g' -i requirements.txt
 
 RUN cd ~/ros/ros_chainercv_ws/src && \

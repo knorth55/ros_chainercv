@@ -23,6 +23,7 @@ RUN mkdir -p ~/ros/ros_chainercv_ws/src && \
 
 RUN cd ~/ros/ros_chainercv_ws/src/knorth55/ros_chainercv && \
     sed -e 's/.*nvidia-cuda.*//g' -i package.xml && \
+    sed -e 's/cupy-cuda91.*//g' -i requirements.in && \
     sed -e 's/cupy-cuda91.*//g' -i requirements.txt
 
 ARG ROS_DISTRO

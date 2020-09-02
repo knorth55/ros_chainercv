@@ -11,11 +11,11 @@ catkin_package()
 
 # Generate the virtualenv, optionally with python 3 as the default interpreter:
 catkin_generate_virtualenv(
-  PYTHON_VERSION 2
+  INPUT_REQUIREMENTS requirements.in
+  PYTHON_INTERPRETER python3
   USE_SYSTEM_PACKAGES TRUE
   ISOLATE_REQUIREMENTS FALSE
 )
-# catkin_generate_virtualenv(PYTHON3)
 
 file(GLOB NODE_SCRIPTS_FILES node_scripts/*)
 catkin_install_python(
@@ -36,7 +36,7 @@ install(
 )
 
 install(
-  FILES requirements.txt
+  FILES requirements.in requirements.txt
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 

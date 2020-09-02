@@ -46,7 +46,8 @@ Please build this package using the standard build procedure of ROS.
 mkdir catkin_ws/src -p
 cd catkin_ws/src
 git clone https://github.com/knorth55/ros_chainercv.git
-cd ..
+cp ros_chainercv/fc.rosinstall.$ROS_DISTRO .rosinstall
+wstool update
 rosdep install --ignore-src --from-path src -y -r -i
 catkin build
 source devel/setup.bash
@@ -63,7 +64,10 @@ vim package.xml
 # remove nvidia-cuda dependency
 vim requirements.txt
 # modify cupy-cuda91 to cupy with your CUDA version
-cd ../../
+cd ../
+cp ros_chainercv/fc.rosinstall.$ROS_DISTRO .rosinstall
+wstool update
+cd ../
 rosdep install --ignore-src --from-path src -y -r -i
 catkin build
 source devel/setup.bash
