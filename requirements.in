@@ -1,0 +1,3 @@
+chainer
+chainercv>=0.13
+cupy-cuda91
