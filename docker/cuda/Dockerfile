@@ -32,9 +32,8 @@ RUN apt-get update && \
 
 RUN mkdir -p ~/ros/ros_chainercv_ws/src && \
     cd ~/ros/ros_chainercv_ws/src && \
-    wstool init && \
-    wstool set knorth55/ros_chainercv https://github.com/knorth55/ros_chainercv.git -v master --git -y && \
-    wstool set locusrobotics/catkin_virtualenv https://github.com/locusrobotics/catkin_virtualenv.git -v 0.5.2 --git -y && \
+    git clone https://github.com/knorth55/ros_chainercv.git && \
+    cp ros_chainercv/fc.rosinstall.${ROS_DISTRO} .rosinstall && \
     wstool up -j 2
 
 ARG CUDA_MAJOR_VERSION
