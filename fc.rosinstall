@@ -2,3 +2,8 @@
     local-name: coral_usb_ros
     uri: https://github.com/knorth55/coral_usb_ros.git
     version: master
+# waiting for 2.2.11 release
+- git:
+    local-name: jsk_common
+    uri: https://github.com/jsk-ros-pkg/jsk_common.git
+    version: 2.2.11
