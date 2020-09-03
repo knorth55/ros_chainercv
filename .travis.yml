@@ -26,6 +26,7 @@ matrix:
   allow_failures:
     - env: ROS_DISTRO=melodic USE_DEB=true
 
+before_script: git config --global --add protocol.version 1
 script: source .travis/travis.sh
 
 branches:
