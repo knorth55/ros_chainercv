@@ -1,12 +1,17 @@
 chainer==7.7.0            # via -r requirements.in, chainercv
 chainercv==0.13.1         # via -r requirements.in
 cupy-cuda91==7.8.0        # via -r requirements.in
+cycler==0.10.0            # via matplotlib
 fastrlock==0.5            # via cupy-cuda91
 filelock==3.0.12          # via chainer
-numpy==1.18.5             # via chainer, cupy-cuda91
+kiwisolver==1.1.0         # via matplotlib
+matplotlib==3.0.3         # via -r requirements.in
+numpy==1.18.5             # via chainer, cupy-cuda91, matplotlib
 pillow==7.2.0             # via chainercv
 protobuf==3.13.0          # via chainer
-six==1.15.0               # via chainer, cupy-cuda91, protobuf
+pyparsing==2.4.7          # via matplotlib
+python-dateutil==2.8.1    # via matplotlib
+six==1.15.0               # via chainer, cupy-cuda91, cycler, protobuf, python-dateutil
 typing-extensions==3.7.4.3  # via chainer
 
 # The following packages are considered to be unsafe in a requirements file:

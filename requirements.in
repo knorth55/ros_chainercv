@@ -1,3 +1,4 @@
 chainer
 chainercv>=0.13
 cupy-cuda91
+matplotlib>=3.0.3
