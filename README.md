@@ -43,12 +43,16 @@ docker pull knorth55/ros_chainercv:melodic-cuda92-latest
 Please build this package using the standard build procedure of ROS.
 
 ```bash
+sudo apt install python3-opencv
 mkdir catkin_ws/src -p
 cd catkin_ws/src
 git clone https://github.com/knorth55/ros_chainercv.git
 cp ros_chainercv/fc.rosinstall.$ROS_DISTRO .rosinstall
 wstool update
+cd ..
 rosdep install --ignore-src --from-path src -y -r -i
+catkin init
+catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.6m -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so
 catkin build
 source devel/setup.bash
 ```
@@ -69,6 +73,8 @@ cp ros_chainercv/fc.rosinstall.$ROS_DISTRO .rosinstall
 wstool update
 cd ../
 rosdep install --ignore-src --from-path src -y -r -i
+catkin init
+catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.6m -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so
 catkin build
 source devel/setup.bash
 ```
