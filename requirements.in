@@ -1,0 +1,5 @@
+chainer==6.7.0
+chainercv>=0.13
+cupy-cuda91>=6.0.0
+typing<=3.6.6
+typing_extensions<=3.6.6
