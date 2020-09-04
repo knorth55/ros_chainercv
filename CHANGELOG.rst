@@ -2,8 +2,8 @@
 Changelog for package ros_chainercv
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2020-09-05)
+------------------
 * update Dockerfile
 * update .travis to 0.5.13
 * use catkin_virtualenv>=0.6.1
