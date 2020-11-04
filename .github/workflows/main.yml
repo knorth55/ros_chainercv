@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  industrial_ci:
+    strategy:
+      matrix:
+        env:
+          - ROS_DISTRO: kinetic
+            ROS_REPO: testing
+            ROSDEP_SKIP_KEYS: 'nvidia-cuda'
+          - ROS_DISTRO: kinetic
+            ROS_REPO: main
+            ROSDEP_SKIP_KEYS: 'nvidia-cuda'
+          - ROS_DISTRO: melodic
+            ROS_REPO: testing
+            ROSDEP_SKIP_KEYS: 'nvidia-cuda'
+          - ROS_DISTRO: melodic
+            ROS_REPO: main
+            ROSDEP_SKIP_KEYS: 'nvidia-cuda'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: 'ros-industrial/industrial_ci@master'
+        env: ${{matrix.env}}
