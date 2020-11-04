@@ -1,7 +1,7 @@
 # ROS-ChainerCV
 
 [![GitHub version](https://badge.fury.io/gh/knorth55%2Fros_chainercv.svg)](https://badge.fury.io/gh/knorth55%2Fros_chainercv)
-[![Build Status](https://travis-ci.com/knorth55/ros_chainercv.svg?branch=master)](https://travis-ci.com/knorth55/ros_chainercv)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/knorth55/ros_chainercv/CI/master)](https://github.com/knorth55/ros_chainercv/actions)
 [![Docker Stars](https://img.shields.io/docker/stars/knorth55/ros_chainercv.svg)](https://hub.docker.com/r/knorth55/ros_chainercv)
 [![Docker Pulls](https://img.shields.io/docker/pulls/knorth55/ros_chainercv.svg)](https://hub.docker.com/r/knorth55/ros_chainercv)
 [![Docker Automated](https://img.shields.io/docker/cloud/automated/knorth55/ros_chainercv.svg)](https://hub.docker.com/r/knorth55/ros_chainercv)
