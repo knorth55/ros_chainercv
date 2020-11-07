@@ -38,9 +38,11 @@ You can get docker images as a command below.
 ```bash
 docker pull knorth55/ros_chainercv:melodic-cuda92-latest
 ```
+
 ## Build
 
 ### Build with `nvidia-cuda-toolkit` deb package
+
 Please build this package using the standard build procedure of ROS.
 
 ```bash
