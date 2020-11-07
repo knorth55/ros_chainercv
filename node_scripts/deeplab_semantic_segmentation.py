@@ -17,7 +17,8 @@ class DeepLabSemanticSegmentation(SemanticSegmentationNode):
     }
 
     def set_param(self):
-        self.model_name = rospy.get_param('~model', 'deeplab_v3plus_xception65')
+        self.model_name = rospy.get_param(
+            '~model', 'deeplab_v3plus_xception65')
         self.pretrained_model = rospy.get_param(
             '~pretrained_model', 'ade20k')
         self.label_names = rospy.get_param(
