@@ -20,23 +20,24 @@ This project depends on [locusrobotics/catkin_virtualenv](https://github.com/loc
 You can get docker images below from Docker hub repository [knorth55/ros_chainercv](https://hub.docker.com/r/knorth55/ros_chainercv).
 
 Available tags are below.
+
 - Ubuntu 16.04 + ROS Kinetic
   - Kinetic: `kinetic-latest`
   - Kinetic + CUDA8.0: `kinetic-cuda80-latest`
   - Kinetic + CUDA9.0: `kinetic-cuda90-latest`
   - Kinetic + CUDA9.1: `kinetic-cuda91-latest`
   - Kinetic + CUDA9.2: `kinetic-cuda92-latest`
-  - Kinetic + CUDA10.0: `kinetic-cuda100-latest` 
+  - Kinetic + CUDA10.0: `kinetic-cuda100-latest`
 - Ubuntu 18.04 + ROS Melodic
   - Melodic: `melodic-latest`
   - Melodic + CUDA9.2: `melodic-cuda92-latest`
   - Melodic + CUDA10.0: `melodic-cuda100-latest`
 
 You can get docker images as a command below.
+
 ```bash
 docker pull knorth55/ros_chainercv:melodic-cuda92-latest
 ```
-
 ## Build
 
 ### Build with `nvidia-cuda-toolkit` deb package
@@ -69,9 +70,9 @@ catkin build
 source devel/setup.bash
 ```
 
-## Run sample 
+## Run sample
 
-### Object Detection 
+### Object Detection
 
 - FasterRCNN : `roslaunch ros_chainercv sample_faster_rcnn_object_detection.launch`
 - FasterRCNN FPN: `roslaunch ros_chainercv sample_faster_rcnn_fpn_object_detection.launch`
@@ -89,6 +90,7 @@ source devel/setup.bash
 - MaskRCNN FPN: `roslaunch ros_chainercv sample_mask_rcnn_fpn_instance_segmentation.launch`
 
 ## Tested environment
+
 - Ubuntu: 18.04
 - ROS: Melodic
 - CUDA: 9.1
