@@ -5,14 +5,16 @@ FROM nvidia/cuda:${CUDA_MAJOR_VERSION}.${CUDA_MINOR_VERSION}-cudnn7-devel-ubuntu
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update && apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN apt-get install -y --no-install-recommends \
     git \
     lsb-release \
     sed \
     wget \
-    gnupg2
+    gnupg2 && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN echo "deb http://packages.ros.org/ros-shadow-fixed/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
 
@@ -28,7 +30,8 @@ RUN apt-get update && \
     python-rosinstall \
     python-vcstools \
     python-setuptools \
-    python-wstool
+    python-wstool && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p ~/ros/ros_chainercv_ws/src && \
     cd ~/ros/ros_chainercv_ws/src && \
@@ -47,7 +50,8 @@ RUN cd ~/ros/ros_chainercv_ws/src/knorth55/ros_chainercv && \
 RUN cd ~/ros/ros_chainercv_ws/src && \
     rosdep init && \
     rosdep update && \
-    rosdep install --rosdistro ${ROS_DISTRO} -r -y -i --from-paths .
+    rosdep install --rosdistro ${ROS_DISTRO} -r -y -i --from-paths . && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN cd ~/ros/ros_chainercv_ws && \
     . /opt/ros/${ROS_DISTRO}/setup.sh && \
