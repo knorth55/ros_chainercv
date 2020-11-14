@@ -30,8 +30,9 @@ RUN cd ~/ros/ros_chainercv_ws/src/knorth55/ros_chainercv && \
     sed -e 's/cupy-cuda91.*//g' -i requirements.txt
 
 ARG ROS_DISTRO
-RUN cd ~/ros/ros_chainercv_ws/src && \
-    rosdep update && \
+RUN apt-get update && \
+    cd ~/ros/ros_chainercv_ws/src && \
+    rosdep update --include-eol-distros && \
     rosdep install --rosdistro ${ROS_DISTRO} -r -y -i --from-paths . && \
     rm -rf /var/lib/apt/lists/*
 
