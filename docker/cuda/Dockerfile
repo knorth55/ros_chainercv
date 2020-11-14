@@ -49,6 +49,7 @@ RUN cd ~/ros/ros_chainercv_ws/src/knorth55/ros_chainercv && \
 
 ARG ROS_DISTRO
 RUN apt-get update && \
+    rosdep init && \
     cd ~/ros/ros_chainercv_ws/src && \
     rosdep update --include-eol-distros && \
     rosdep update && \
