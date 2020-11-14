@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && \
     rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     lsb-release \
     sed \
@@ -47,12 +47,15 @@ RUN cd ~/ros/ros_chainercv_ws/src/knorth55/ros_chainercv && \
     sed -e 's/cuda91/cuda'"${CUDA_MAJOR_VERSION}${CUDA_MINOR_VERSION}"'/g' -i requirements.in && \
     sed -e 's/cuda91/cuda'"${CUDA_MAJOR_VERSION}${CUDA_MINOR_VERSION}"'/g' -i requirements.txt
 
-RUN cd ~/ros/ros_chainercv_ws/src && \
-    rosdep init && \
+ARG ROS_DISTRO
+RUN apt-get update && \
+    cd ~/ros/ros_chainercv_ws/src && \
+    rosdep update --include-eol-distros && \
     rosdep update && \
     rosdep install --rosdistro ${ROS_DISTRO} -r -y -i --from-paths . && \
     rm -rf /var/lib/apt/lists/*
 
+ARG ROS_DISTRO
 RUN cd ~/ros/ros_chainercv_ws && \
     . /opt/ros/${ROS_DISTRO}/setup.sh && \
     catkin build
